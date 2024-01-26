@@ -163,5 +163,5 @@ cython_debug/
 *.wav
 *.mp3
 *.ogg
-
-
+*.swp
+*.swo
