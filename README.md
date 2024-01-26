@@ -1,4 +1,5 @@
 # clear-voice-extractor
+BGMが入っていないパートだけを取り出すツール
 
 ## 学習
 ```sh
