@@ -17,7 +17,7 @@ parser.add_argument('music_dir')
 parser.add_argument('voice_dir')
 parser.add_argument('-model-path', default='model.pt')
 parser.add_argument('-d', '--device', default='cuda')
-parser.add_argument('-e', '--epoch', default=1000, type=int)
+parser.add_argument('-e', '--epoch', default=60, type=int)
 parser.add_argument('-b', '--batch-size', default=16, type=int)
 parser.add_argument('-len', '--length', default=64000, type=int)
 parser.add_argument('-m', '--max-data', default=-1, type=int)
@@ -28,7 +28,7 @@ args = parser.parse_args()
 def load_or_init_models(device=torch.device('cpu')):
     model = Classifier().to(device)
     if os.path.exists(args.model_path):
-        dec.load_state_dict(torch.load(args.model_path, map_location=device))
+        model.load_state_dict(torch.load(args.model_path, map_location=device))
     return model
 
 def save_models(model):

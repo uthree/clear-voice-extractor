@@ -34,6 +34,7 @@ for i, path in enumerate(paths):
     wf, sr = torchaudio.load(path)
     wf = wf.to(device)
     parts = model.extract_voice_parts(wf, sr)
+    print(f"extracted {len(parts)} parts.")
     for part in parts:
         part = part.cpu()
         torchaudio.save(os.path.join(args.outputs, f"{counter}.wav"), src=part, sample_rate=sr)
